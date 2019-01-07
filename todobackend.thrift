@@ -18,3 +18,42 @@
  */
 
 # Todo Backend
+
+/**
+ * The first thing we need to do is define our data types.
+ *
+ * Thrift supports typedefs, allowing us to use pretty names to
+ * express our DSL.
+ */
+
+typedef string Title
+typedef i32 Id
+typedef i32 Order
+typedef bool Completed
+
+struct Todo {
+ 1: Title title,
+ 2: Id id,
+ 3: Completed completed,
+ 4: Order order
+}
+
+/**
+ *
+ */
+service TodoBackend {
+
+  #
+  Todo createTodo(1:Title title),
+
+  #
+  Todo getTodo(1:Id id),
+
+  #
+  Todo updateTodo(1:Todo todo),
+
+  #
+  void deleteTodo(1:Id todo)
+
+
+}

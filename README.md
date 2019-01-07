@@ -20,7 +20,8 @@ Finally write some tests.
 > used for defining and creating services for numerous languages. It forms a remote procedure
 > call (RPC) framework and was developed at Facebook for "scalable cross-language services development".
 > It combines a software stack with a code generation engine to build cross-platform services
-> which can connect applications written in a variety of languages and frameworks
+> which can connect applications written in a variety of languages and frameworks.
+> https://en.wikipedia.org/wiki/Apache_Thrift
 
 ### Install thrift
 

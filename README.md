@@ -49,5 +49,5 @@ and client code we'll write.
 To generate Haskell code:
 
 ```
-thrift --gen hs todo-backend.thrift
+thrift -r --gen hs --out lib/todo-backend/src/ todobackend.thrift
 ```

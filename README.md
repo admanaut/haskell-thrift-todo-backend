@@ -2,7 +2,7 @@
 
 When it comes to microservices communicating over HTTP, there is a lot of boilerplate we
 need to write: define data transfer objects (DTOs), write their JSON instances, write server,
-write client, and also maintain backwards compatibility when the contract is changing.
+write client library, and also maintain backwards compatibility when the contract is changing.
 I'm looking for a solution that would allow me to describe services in a declarative way and
 then generate the server and client code based on that spec. Whenever the spec changes,
 new code is generated and distributed to users, therefore I only need to maintain
@@ -16,12 +16,9 @@ Finally write some tests.
 
 ## Apache Thrift
 
-> Thrift is an interface definition language (IDL) and a binary communication protocol
-> used for defining and creating services for numerous languages. It forms a remote procedure
-> call (RPC) framework and was developed at Facebook for "scalable cross-language services development".
-> It combines a software stack with a code generation engine to build cross-platform services
-> which can connect applications written in a variety of languages and frameworks.
-> https://en.wikipedia.org/wiki/Apache_Thrift
+> Thrift is a _framework_ that offers: an interface definition language (IDL) to describe
+> services with; multiple transport options (sockets, pipes, HTTP, etc); and protocols
+> (binary, JSON, compressed, and more).
 
 ### Install thrift
 

@@ -1,6 +1,6 @@
 name:                todo-backend
 version:             0.1.0.0
-homepage:            https://github.com/githubuser/haskell-thrift-todo-backend#readme
+homepage:            https://github.com/admanaut/haskell-thrift-todo-backend/blob/master/lib/todo-backend
 license:             BSD3
 author:              Author name here
 maintainer:          example@example.com
@@ -15,9 +15,10 @@ library
   default-language:    Haskell2010
 
   exposed-modules:     TodoBackend
-  other-modules:       TodoBackend_Client
+                     , TodoBackend_Client
                      , TodoBackend_Iface
-                     , Todobackend_Types
+
+  other-modules:       Todobackend_Types
                      , Todobackend_Consts
 
   default-extensions:  RecordWildCards
@@ -26,26 +27,6 @@ library
 
   build-depends:       base
                        --
-                     , bytestring
-                     , text
-                     , hashable
-                     , containers
-                     , thrift
-                     , QuickCheck
-                     , vector
-                     , unordered-containers
-
-executable client
-  hs-source-dirs:      src
-  default-extensions:  RecordWildCards
-                     , LambdaCase
-                     , OverloadedStrings
-  main-is:             Main.hs
-  default-language:    Haskell2010
-
-  build-depends:       base
-                     , network
-                       -- Thrift dependencies
                      , bytestring
                      , text
                      , hashable

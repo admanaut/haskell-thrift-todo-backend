@@ -16,9 +16,9 @@ Finally write some tests.
 
 ## Apache Thrift
 
-> Thrift is a _framework_ that offers: an interface definition language (IDL) to describe
+> Thrift is a _RPC framework_ that offers: an interface definition language (IDL) to describe
 > services with; multiple transport options (sockets, pipes, HTTP, etc); and protocols
-> (binary, JSON, compressed, and more).
+> (binary, JSON, compressed, and more). http://thrift.apache.org/static/files/thrift-20070401.pdf
 
 ### Install thrift
 
@@ -37,9 +37,9 @@ our todo-backend service.
 
 see todo-backend.thrift
 
-### thrift compiler
+### thrift code generator
 
-Once we have the thrift compiler installed and .thrift file defined we can use
+Once we have the thrift code generator installed and .thrift file defined we can use
 the thrift compiler to generate the source code which will be used by the server
 and client code we'll write.
 

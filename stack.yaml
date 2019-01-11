@@ -2,6 +2,7 @@ resolver: lts-13.1
 
 packages:
 - location: lib/todo-backend
+- .
 
 extra-deps:
 

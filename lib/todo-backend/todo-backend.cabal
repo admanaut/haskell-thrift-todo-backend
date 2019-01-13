@@ -15,11 +15,11 @@ library
   default-language:    Haskell2010
 
   exposed-modules:     TodoBackend
+                     , Todobackend_Types
                      , TodoBackend_Client
                      , TodoBackend_Iface
 
-  other-modules:       Todobackend_Types
-                     , Todobackend_Consts
+  other-modules:      Todobackend_Consts
 
   default-extensions:  RecordWildCards
                      , LambdaCase

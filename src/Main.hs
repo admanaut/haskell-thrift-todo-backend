@@ -1,8 +1,9 @@
 module Main where
 
-import qualified Binary.Main as Binary
+import qualified Binary.Main as B
+import qualified JSON.Main as J
 
 main :: IO ()
 main = do
-  -- Run binary example
-  Binary.example
+  B.example
+  J.example

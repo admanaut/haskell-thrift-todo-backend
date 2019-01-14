@@ -15,9 +15,20 @@ executable haskell-thrift-todo-backend
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  other-modules:      Binary.Client
+  other-modules:
+                      -- Common
+                     Common.Client
+                   , Common.Server
+
+                    -- Binary
                     , Binary.Main
+                    , Binary.Client
                     , Binary.Server
+
+                    -- JSON
+                    , JSON.Main
+                    , JSON.Client
+                    , JSON.Server
 
   build-depends:       base
                        --

@@ -1,16 +1,15 @@
 module Common.Client where
 
 import qualified Data.Text.Lazy as Tx.L
-import qualified Thrift.Protocol.Binary as Proto
-import qualified Thrift.Transport.Handle as H
+import qualified Thrift.Protocol as P
 import qualified TodoBackend_Client as Client
 import qualified Todobackend_Types as Types
 
 -- | Run client example.
 --
 runExample
-  :: H.Transport t
-  => (Proto.BinaryProtocol t, Proto.BinaryProtocol t)
+  :: P.Protocol p
+  => (p, p)
   -> IO ()
 runExample client = do
   -- Create

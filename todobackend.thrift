@@ -32,17 +32,16 @@ typedef i32 Order
 typedef bool Completed
 
 struct Todo {
- 1: Title title,
- 2: Id id,
- 3: Completed completed,
- 4: Order order
+ 1:Title title,
+ 2:Id id,
+ 3:Completed completed,
+ 4:Order order
 }
 
 /**
  *
  */
 service TodoBackend {
-
   #
   Todo createTodo(1:Title title),
 
@@ -54,6 +53,4 @@ service TodoBackend {
 
   #
   void deleteTodo(1:Id todo)
-
-
 }

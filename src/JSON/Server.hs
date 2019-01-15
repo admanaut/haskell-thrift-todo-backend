@@ -26,5 +26,3 @@ runServer = do
     jsonAccept s = do
       (h, _, _) <- Ntw.accept s
       pure (Proto.JSONProtocol h, Proto.JSONProtocol h)
-
--- handler Todo.process 9090

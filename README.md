@@ -48,3 +48,17 @@ To generate Haskell code:
 ```
 thrift -r --gen hs --out lib/todo-backend/src/ todobackend.thrift
 ```
+
+## Examples
+
+### binary protocol and socket transport
+
+see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/src/Binary
+
+### JSON protocol and socket transport
+
+see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/src/JSON
+
+### JSON protocol and HTTP transport
+
+Unfortunately there's no implementation for HTTP transport in Haskell.

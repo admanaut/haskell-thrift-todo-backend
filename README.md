@@ -61,3 +61,15 @@ see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/src/JSON
 ### JSON protocol and HTTP transport
 
 Unfortunately there's no implementation for HTTP transport in Haskell.
+
+### execute examples
+
+use stack to compile and execute the code
+
+```
+stack build
+```
+
+```
+stack exec haskell-thrift-todo-backend
+```

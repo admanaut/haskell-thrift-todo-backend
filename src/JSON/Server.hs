@@ -16,7 +16,7 @@ import qualified TodoBackend as Todo
 runServer :: IO ()
 runServer = do
   handler <- Common.newTodoBackendHandler
-  Common.sprint "Starting binary protocol socket server on localhost:9090"
+  Common.sprint "Starting binary protocol socket server on localhost:9080"
 
   _ <- Th.runThreadedServer jsonAccept handler Todo.process (Ntw.PortNumber 9080)
 

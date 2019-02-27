@@ -60,7 +60,19 @@ see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/src/JSON
 
 ### JSON protocol and HTTP transport
 
-Unfortunately there's no implementation for HTTP transport in Haskell.
+~Unfortunately there's no implementation for HTTP transport in Haskell.~
+
+It's relatively trivial to implement a memory transport that just buffer bytes
+in memory. You can then plug that into an HTTP server and it works. _But_, you
+don't get the (nice?) threaded server the Thrift library provides. That
+shouldn't be a problem as long as the HTTP server is equally performant. Any
+server implementation backed by `wai` can be considered high performant at
+this point. The nice benefit of not buying into a Thrift server (even if there
+were one available) is that you can deal with the request and response however
+you see fit. That's especially important for headers, in case you want to
+forward additional metadata to the server.
+
+see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/src/Http
 
 ### execute examples
 

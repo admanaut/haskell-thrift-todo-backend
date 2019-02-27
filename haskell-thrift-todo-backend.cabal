@@ -30,6 +30,13 @@ executable haskell-thrift-todo-backend
                     , JSON.Client
                     , JSON.Server
 
+                     -- Http
+                    , Http.Client
+                    , Http.Main
+                    , Http.Server
+                    , Transport.Memory
+
+
   build-depends:       base
                        --
                      , todo-backend
@@ -43,3 +50,5 @@ executable haskell-thrift-todo-backend
                      , vector
                      , unordered-containers
                      , network
+                     , network-uri
+                     , scotty

@@ -5,12 +5,6 @@ packages:
 - .
 
 extra-deps:
-
-# thrift-0.11.0 is not yet published to Hackage
-# and we need to build it from source (github)
-- git: git@github.com:apache/thrift
-  commit: fc0ff81
-  subdirs:
-    - lib/hs
+- thrift-0.12.0
 
 allow-newer: true

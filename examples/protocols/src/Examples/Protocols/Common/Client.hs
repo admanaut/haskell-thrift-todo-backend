@@ -1,4 +1,4 @@
-module Common.Client where
+module Examples.Protocols.Common.Client where
 
 import qualified Data.Text.Lazy as Tx.L
 import qualified Thrift.Protocol as P

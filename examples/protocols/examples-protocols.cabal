@@ -1,34 +1,32 @@
-name:                haskell-thrift-todo-backend
+name:                examples-protocols
 version:             0.1.0.0
 homepage:            https://github.com/admanaut/haskell-thrift-todo-backend
 license:             BSD3
-license-file:        LICENSE
 author:              Author name here
 maintainer:          example@example.com
 copyright:           2019 Author name here
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
-extra-source-files:  README.md
 
-executable haskell-thrift-todo-backend
+executable examples-protocols
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
   other-modules:
                       -- Common
-                     Common.Client
-                   , Common.Server
+                     Examples.Protocols.Common.Client
+                   , Examples.Protocols.Common.Server
 
                     -- Binary
-                    , Binary.Main
-                    , Binary.Client
-                    , Binary.Server
+                    , Examples.Protocols.Binary.Main
+                    , Examples.Protocols.Binary.Client
+                    , Examples.Protocols.Binary.Server
 
                     -- JSON
-                    , JSON.Main
-                    , JSON.Client
-                    , JSON.Server
+                    , Examples.Protocols.JSON.Main
+                    , Examples.Protocols.JSON.Client
+                    , Examples.Protocols.JSON.Server
 
   build-depends:       base
                        --

@@ -1,7 +1,7 @@
-module Binary.Main where
+module Examples.Protocols.JSON.Main where
 
-import qualified Binary.Client as Client
-import qualified Binary.Server as Server
+import qualified Examples.Protocols.JSON.Client as Client
+import qualified Examples.Protocols.JSON.Server as Server
 import qualified Control.Concurrent as Async
 
 example :: IO ()

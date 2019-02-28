@@ -1,6 +1,6 @@
-module Binary.Client where
+module Examples.Protocols.Binary.Client where
 
-import qualified Common.Client as Ex
+import qualified Examples.Protocols.Common.Client as Ex
 import qualified Network as Ntw
 import qualified Thrift.Protocol.Binary as Proto
 import qualified Thrift.Transport.Handle as H

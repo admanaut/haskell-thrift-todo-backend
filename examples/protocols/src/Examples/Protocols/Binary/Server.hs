@@ -1,6 +1,6 @@
-module Binary.Server where
+module Examples.Protocols.Binary.Server where
 
-import qualified Common.Server as Common
+import qualified Examples.Protocols.Common.Server as Common
 import qualified Thrift.Server as Th
 import qualified TodoBackend as Todo
 

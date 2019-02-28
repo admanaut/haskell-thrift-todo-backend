@@ -1,4 +1,4 @@
-module Common.Server where
+module Examples.Protocols.Common.Server where
 
 import qualified Control.Concurrent as Async
 import qualified Data.Int as I

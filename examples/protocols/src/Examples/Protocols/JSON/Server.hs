@@ -1,6 +1,6 @@
-module JSON.Server where
+module Examples.Protocols.JSON.Server where
 
-import qualified Common.Server as Common
+import qualified Examples.Protocols.Common.Server as Common
 import qualified Network as Ntw
 import qualified Thrift.Protocol.JSON as Proto
 import qualified Thrift.Server as Th

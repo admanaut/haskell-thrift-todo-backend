@@ -1,6 +1,6 @@
-module JSON.Client where
+module Examples.Protocols.JSON.Client where
 
-import qualified Common.Client as Ex
+import qualified Examples.Protocols.Common.Client as Ex
 import qualified Network as Ntw
 import qualified Thrift.Protocol.JSON as Proto
 import qualified Thrift.Transport.Handle as H

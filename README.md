@@ -73,3 +73,123 @@ stack build
 ```
 stack exec haskell-thrift-todo-backend
 ```
+
+# Schema progression
+
+Naturally, schemas evolve over time, to conform with new requirements, record fields
+get added or removed, or containers change items type. So, a key feature of our IDL
+is to have great support for schema versioning.
+
+Let's take a look at how Thrift handles versioning
+
+## Thrift Versioning
+
+Versioning in Thrift is done via field identifiers. Every member of a struct is encoded
+with a unique field identifier, the combination of this identifier and the type of the
+field uniquely identifies the field.
+
+```
+struct Todo {
+ 1: required Title title,
+ 2: required Id id,
+ 3: required Completed completed,
+ 4: required Order order
+}
+```
+
+^ example of field identifiers
+
+Function arguments also use identifiers. This allows for version-safe changes of method params.
+
+```Todo createTodo( 1:Title title )```
+
+^ example of function arguments identifiers
+
+## Version mismach
+
+There are four cases in which version mismatches may occur:
+
+1. _Added field, old client, new server_
+   - old client does not send the new field. new server uses defaults for missing field.
+
+2. _Removed field, old client, new server_
+   - old client sends the removed field. new server ignores it.
+
+3. _Added field, new client, old server_
+   - new client sends the new filed. old server does not recognise it and ignores it.
+
+4. _Removed field, new client, old server_
+   - new client doesn't send the field. old server most probably will crash
+   because it doesn't have any defaults for the missing field.
+   it is recommended to deploy the new server first in this situation.
+
+In order to demonstrate the above scenarios, I created 2 new _.thrift_ files
+`todobackendadded.thrift` and `todobackendremoved.thrift`, where I added a new record
+field _related_, and removed the _order_ field respectively.
+
+I have also created two new libraries, `todo-backend-added` and `todo-backend-removed`, so we can
+have all versions of the todo-backend at the same time.
+
+## Haskell library and optional fields
+
+A record field in Thrift can be decorated with:
+
+* _required_ - must exist on read, must be set on write
+* _optional_ - may or may not be set
+* explicit default value - this is not a decorator in itself but you can specify a default value using the (=) sign
+
+if neither is specified, an implicit default value is used.
+
+The Haskell library generates code for optional and default values like this:
+
+*no decorator specified*
+
+```
+struct Todo {
+ ...
+ 5: Related related
+ ...
+}
+```
+
+in this case an implicit default value is used,
+like 0 for int32, [] for lists and "" for strings
+
+*optional decorator and no explicit default value*
+
+```
+struct Todo {
+ ...
+ 5: optional Related related
+ ...
+}
+```
+
+in this case a Maybe is used with an implicit default value,
+like Just 0 for int32, Just [] for lists and Just "" for strings
+
+*optional decorator with explicit default value*
+
+```
+struct Todo {
+ ...
+ 5: optional Related related=[10]
+ ...
+}
+```
+
+in this case a Maybe is used with the explicit default value,
+like Just 10 for int32, Just [10] for lists and Just "10" for strings
+
+*no decorator but explicit default value*
+
+```
+struct Todo {
+ ...
+ 5: Related related=[10]
+ ...
+}
+```
+
+this case is interesting, the explicit default value is used,
+like 10 for int32, [10] for lists and "10" for strings

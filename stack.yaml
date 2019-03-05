@@ -2,7 +2,11 @@ resolver: lts-13.1
 
 packages:
 - location: lib/todo-backend
+- location: lib/todo-backend-added
+- location: lib/todo-backend-removed
+
 - location: examples/protocols
+- location: examples/versioning
 
 extra-deps:
 

@@ -17,25 +17,24 @@
  * under the License.
  */
 
-# Todo Backend
+# Todo Backend Updated
 
 /**
- * The first thing we need to do is define our data types.
  *
- * Thrift supports typedefs, allowing us to use pretty names to
- * express our DSL.
  */
 
 typedef string Title
 typedef i32 Id
 typedef i32 Order
 typedef bool Completed
+typedef list<Id> Related
 
 struct Todo {
  1: required Title title,
  2: required Id id,
  3: required Completed completed,
- 4: required Order order
+ 4: required Order order,
+ 5: Related related=[10] # new field with a default value
 }
 
 /**
@@ -52,5 +51,8 @@ service TodoBackend {
   Todo updateTodo(1:Todo todo),
 
   #
-  void deleteTodo(1:Id todo)
+  void deleteTodo(1:Id todo),
+
+  #
+  Related getRelated(1:Id todo)
 }

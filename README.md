@@ -130,6 +130,8 @@ field _related_, and removed the _order_ field respectively.
 I have also created two new libraries, `todo-backend-added` and `todo-backend-removed`, so we can
 have all versions of the todo-backend at the same time.
 
+see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/examples/versioning/src/Examples/Versioning
+
 ## Haskell library and optional fields
 
 A record field in Thrift can be decorated with:

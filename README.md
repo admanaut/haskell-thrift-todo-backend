@@ -116,7 +116,7 @@ There are four cases in which version mismatches may occur:
    - old client sends the removed field. new server ignores it.
 
 3. _Added field, new client, old server_
-   - new client sends the new filed. old server does not recognise it and ignores it.
+   - new client sends the new field. old server does not recognise it and ignores it.
 
 4. _Removed field, new client, old server_
    - new client doesn't send the field. old server most probably will crash
@@ -142,7 +142,7 @@ if neither is specified, an implicit default value is used.
 
 The Haskell library generates code for optional and default values like this:
 
-*no decorator specified*
+1) no decorator specified
 
 ```
 struct Todo {
@@ -153,9 +153,9 @@ struct Todo {
 ```
 
 in this case an implicit default value is used,
-like 0 for int32, [] for lists and "" for strings
+like _0_ for int32, _[]_ for lists and _""_ for strings
 
-*optional decorator and no explicit default value*
+2) optional decorator and no explicit default value
 
 ```
 struct Todo {
@@ -166,9 +166,9 @@ struct Todo {
 ```
 
 in this case a Maybe is used with an implicit default value,
-like Just 0 for int32, Just [] for lists and Just "" for strings
+like _Just 0_ for int32, _Just []_ for lists and _Just ""_ for strings
 
-*optional decorator with explicit default value*
+3) optional decorator with explicit default value
 
 ```
 struct Todo {
@@ -179,9 +179,9 @@ struct Todo {
 ```
 
 in this case a Maybe is used with the explicit default value,
-like Just 10 for int32, Just [10] for lists and Just "10" for strings
+like _Just 10_ for int32, _Just [10]_ for lists and _Just "10"_ for strings
 
-*no decorator but explicit default value*
+4) no decorator but explicit default value
 
 ```
 struct Todo {
@@ -192,4 +192,4 @@ struct Todo {
 ```
 
 this case is interesting, the explicit default value is used,
-like 10 for int32, [10] for lists and "10" for strings
+like _10_ for int32, _[10]_ for lists and _"10"_ for strings

@@ -64,20 +64,24 @@ Unfortunately there's no implementation for HTTP transport in Haskell.
 
 ### execute examples
 
-use stack to compile and execute the code
+use make to compile and execute examples
 
 ```
-stack build
+make build
 ```
 
 ```
-stack exec haskell-thrift-todo-backend
+make x-protocols
+```
+
+```
+make x-versioning
 ```
 
 # Schema progression
 
-Naturally, schemas evolve over time, to conform with new requirements, record fields
-get added or removed, or containers change items type. So, a key feature of our IDL
+Naturally, schemas evolve over time to conform with new requirements, record fields
+get added or removed, or containers change items type. Therefore, a key feature of our IDL
 is to have great support for schema versioning.
 
 Let's take a look at how Thrift handles versioning
@@ -101,9 +105,15 @@ struct Todo {
 
 Function arguments also use identifiers. This allows for version-safe changes of method params.
 
-```Todo createTodo( 1:Title title )```
+```
+service TodoBackend {
+  ...
+  Todo createTodo( 1:Title title )
+  ...
+}
+```
 
-^ example of function arguments identifiers
+^ example of function argument identifier
 
 ## Version mismach
 
@@ -128,7 +138,7 @@ In order to demonstrate the above scenarios, I created 2 new _.thrift_ files
 field _related_, and removed the _order_ field respectively.
 
 I have also created two new libraries, `todo-backend-added` and `todo-backend-removed`, so we can
-have all versions of the todo-backend at the same time.
+play with all combinations of the server and client at the same time.
 
 see https://github.com/admanaut/haskell-thrift-todo-backend/tree/master/examples/versioning/src/Examples/Versioning
 

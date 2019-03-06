@@ -6,8 +6,8 @@ gen: todobackend.thrift
 build:
 	stack build
 
-protocols:
+x-protocols:
 	stack exec examples-protocols
 
-versioning:
+x-versioning:
 	stack exec examples-versioning

@@ -62,15 +62,15 @@ load("@io_tweag_rules_haskell//haskell:nixpkgs.bzl", "haskell_nixpkgs_packageset
 
 haskell_nixpkgs_packageset(
   name = "hackage-packages",
-  repositories = {"@nixpkgs": "nixpkgs"},
-  nix_file = "//haskellPackages.nix",
+  repositories = {"nixpkgs": "@nixpkgs"},
+  nix_file = "//:haskellPackages.nix",
   base_attribute_path = "haskellPackages",
 )
 
-#load("@hackage-packages//:packages.bzl", "import_packages")
+load("@hackage-packages//:packages.bzl", "import_packages")
 
-# import_packages(
-#     name = "hackage",
-# )
+import_packages(
+    name = "hackage",
+)
 
 # }} Haskell ###################################################################

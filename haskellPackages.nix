@@ -1,7 +1,4 @@
-with (import <nixpkgs> {});
+with import <nixpkgs> {};
 
-haskellPackages.ghcWithPackages (p: with p; [
-  containers
-  lens
-  text
-])
+let wrapPackages = callPackage <bazel_haskell_wrapper> { }; in
+{ haskellPackages = wrapPackages haskell.packages.ghc843; }
